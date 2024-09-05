@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class P2 {
 
     public static void main(String[] args) {
-        args=new String[]{"jignesh","jigar","ashwin","nitesh","manish"};
+      
         int len=args.length-1;
         String tString;
         System.out.println("\n\nBefore Sorting : ");
