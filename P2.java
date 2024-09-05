@@ -1,9 +1,9 @@
 
-package collegejavapro;
+
 
 import java.util.Arrays;
 
-public class Collegejavapro {
+public class P2 {
 
     public static void main(String[] args) {
         args=new String[]{"jignesh","jigar","ashwin","nitesh","manish"};
