@@ -1,12 +1,9 @@
-
-
-
 import java.util.Arrays;
 
 public class P2 {
 
     public static void main(String[] args) {
-      
+        
         int len=args.length-1;
         String tString;
         System.out.println("\n\nBefore Sorting : ");
@@ -14,7 +11,7 @@ public class P2 {
         {
             System.out.print(args[x]+" ");
         }
-      /*  for(int i=0;i<args.length-1;i++)
+       for(int i=0;i<args.length-1;i++)
         {
             int f=0;
             for(int j=0;j<len;j++)
@@ -31,8 +28,8 @@ public class P2 {
             if(f==0)
                 break;
             len--;
-        }*/
-      Arrays.sort(args);
+        }
+      //Arrays.sort(args);
      System.out.println("\n\nAfter Sorting : ");
                   for(int x=0;x<args.length;x++)
         {
