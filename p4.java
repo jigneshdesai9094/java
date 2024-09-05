@@ -1,5 +1,4 @@
 
-package collegejavapro;
 
 import java.util.Scanner;
 
