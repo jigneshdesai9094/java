@@ -3,14 +3,14 @@ class Circle
 	private double x,y,r;
 	Circle()
 	{
-		x=80;
-		y=80;
+		x=2;
+		y=3;
 		r=5;
 	}
 	Circle(int r)
 	{
-		x=50;
-		y=50;
+		x=4;
+		y=5;
 		this.r=r;
 	}
 	Circle(int l,int r)
@@ -42,6 +42,7 @@ class P6
 {
 	public static void main(String args[])
 	{
+		System.out.printl
 		Circle s1=new Circle();
 		Circle s2=new Circle(10);
 		Circle s3=new Circle(20,4);
