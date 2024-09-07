@@ -88,24 +88,27 @@ static Scanner sc=new Scanner(System.in);
   {
     while (true)
     {
-        System.out.println("1.Area");
+        System.out.println("\n1.Area");
         System.out.println("2.Perimeter");
         System.out.println("3.exit");
-        System.out.println("\nEnter operation no : ");
+        System.out.println("Enter operation no : ");
         int c=sc.nextInt();
         switch(c)
         {
-            case 1:System.out.println("Area : "+s.area());
+            case 1:System.out.println("\nArea : "+s.area());
                    break;
             case 2:System.out.println("Perimeter : "+s.perimeter());
                     break;
-            case 3:return;
+            case 3:
+                   return;
             default:System.out.println("please,enter valid choice");
         }
     }
   }
   public static void main(String[] args) {
-  
+  while (true) {
+    
+ 
     System.out.println("\nVarious shape to perform operation : ");
     System.out.println("1.Rectangle");
     System.out.println("2.Triangle");
@@ -115,7 +118,7 @@ static Scanner sc=new Scanner(System.in);
     int choice=sc.nextInt();
     if(choice==1)
     {
-       System.out.println("1.User Default size Rectangle");
+       System.out.println("\n1.User Default size Rectangle");
        System.out.println("2.Use Specific size Rectangle");
        System.out.println("Enter No Specific Rectange Use : ");
        int c=sc.nextInt();
@@ -182,7 +185,10 @@ static Scanner sc=new Scanner(System.in);
         else
           System.out.println("please,enter valid choice");
     }
+    else if(choice==4)
+      System.exit(0);
     else
       System.out.println("\nPlease,entr valid choice");
   }
+}
 }
