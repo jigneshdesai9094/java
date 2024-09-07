@@ -125,6 +125,21 @@ class Matrix
             }
         }
     }
+    public void user_intialize()
+    {
+        Scanner sc=new Scanner(System.in);
+        int v1;
+         for(int i=0;i<row;i++)
+         {
+            for(int j=0;j<col;j++)
+            {
+                System.out.println("Enter m["+i+"]["+j+"] value : ");
+                
+                v1=sc.nextInt();
+                m1[i][j]=v1;
+            }
+         }
+    }
     public String toString() 
     {
         for(int i=0;i<row;i++)
@@ -148,33 +163,50 @@ public class P8 {
     System.out.println(m2);
       while (true)
       {
-        
-         System.out.println("\n1.Addition");
-         System.out.println("2.Substraction");
-         System.out.println("3.Multiplication");
-         System.out.println("4.Transpose of First Matrix");
-         System.out.println("5.Exit");
+         System.out.println("\n1.Own Intialize Matrix");
+         System.out.println("2.Addition");
+         System.out.println("3.Substraction");
+         System.out.println("4.Multiplication");
+         System.out.println("5.Transpose of First Matrix");
+         System.out.println("6.Exit");
          System.out.println("Enter Your Choice : ");
          int c=sc.nextInt();
          Matrix ans;
          switch (c) {
           case 1:
+                    System.out.println("1.Intialize Matrix 1");
+					System.out.println("2.Intialize Matrix 2");
+					System.out.println("Enter your choice");
+					int c1 = sc.nextInt();
+					switch (c1) {
+						case 1:m1.user_intialize(); 
+                               System.out.println("Matrix - 1");
+                               System.out.println(m1);
+                               break;
+                        case 2:m2.user_intialize();
+                              System.out.println("Matrix - 2");
+                               System.out.println(m2);
+                               break;
+                        default:System.out.println("Please,enter valid choice");
+                    }
+                    break;
+          case 2:
             ans=m1.add(m2);
             System.out.println(ans);
             break;
-          case 2:
+          case 3:
           ans=m1.sub(m2);
           System.out.println(ans);
             break;
-          case 3:
+          case 4:
           ans=m1.mul(m2);
           System.out.println(ans);
             break;
-          case 4:
+          case 5:
            ans=m1.transpose();
            System.out.println(ans);
            break;
-          case 5:
+          case 6:
             System.exit(0);
           default:System.out.println("\nPlease,enter valid one above choice");
             break; 
