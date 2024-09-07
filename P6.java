@@ -44,6 +44,7 @@ class P6
 	public static void main(String args[])
 	{
 	    Scanner sc=new Scanner(System.in);
+	    int x,y,r;
 	    while(true)
 	    {
 		System.out.println("1.Default Circle");
@@ -53,7 +54,7 @@ class P6
 		System.out.println("5.Exit");
 		System.out.println("\nEnter your choice");
 		int choice=sc.nextInt();
-		switch(s1)
+		switch(choice)
 		{
 		    case 1:Circle s1=new Circle();
 		    		System.out.println("Area of s1 = "+s1.area());
@@ -61,27 +62,35 @@ class P6
 		            System.out.println("Diameter of s1 = "+s1.diameter());
 		            break;
 		  case 2:System.out.println("\nEnter Circle radius : ");
-		         int r=sc.nextInt();
+		         r=sc.nextInt();
 		         Circle s2=new Circle(r);
 		         
 		          System.out.println("\n\nArea of s2 = "+s2.area());
 		          System.out.println("Circumference of s2 = "+s2.circumference());
 		          System.out.println("Diameter of s2 = "+s2.diameter());
 		          break;
-		  case 3:
-		}
-		
-
-		Circle s3=new Circle(20,4);
-		Circle s4=new Circle(60,60,10);
-
-		System.out.println("\n\nArea of s3 = "+s3.area());
-		System.out.println("Circumference of s3 = "+s3.circumference());
-		System.out.println("Diameter of s3 = "+s3.diameter());
-		System.out.println("\n\nArea of s4 = "+s4.area());
+		  
+		  case 3:System.out.println("\nEnter both coordinate same value : ");
+		      x=sc.nextInt();
+		      System.out.println("\nEnter radius value : ");
+		      r=sc.nextInt();
+		      Circle s3=new Circle(x,r);
+		      	System.out.println("\n\nArea of s3 = "+s3.area());
+		        System.out.println("Circumference of s3 = "+s3.circumference());
+		        System.out.println("Diameter of s3 = "+s3.diameter());
+		      break;
+		 case 4:System.out.println("\nEnter coordinate x,y and radius value : ");
+		  x=sc.nextInt();
+		  y=sc.nextInt();
+		  r=sc.nextInt();
+		  Circle s4=new Circle(x,y,r);
+		  System.out.println("\n\nArea of s4 = "+s4.area());
 		System.out.println("Circumference of s4 = "+s4.circumference());
 		System.out.println("Diameter of s4 = "+s4.diameter());
-		
+		break;
+		case 5:System.exit(0);
+		default:System.out.println("\nPlease,enter valid choice");
+		}
 	    }
 	}
 }
