@@ -39,7 +39,7 @@ class Circle
 		return 2*r;
 	}
 }
-class P6
+public class P6
 {
 	public static void main(String args[])
 	{
@@ -47,7 +47,7 @@ class P6
 	    int x,y,r;
 	    while(true)
 	    {
-		System.out.println("1.Default Circle");
+		System.out.println("\n\n1.Default Circle");
 		System.out.println("2.Specific radius cirlce");
 		System.out.println("3.Specific same coordinate and radius circle");
 		System.out.println("4.Specific different coordinate and radius circle");
