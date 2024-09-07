@@ -74,13 +74,29 @@ class Matrix
     }
     public Matrix transpose()
     {
-        Matrix sum=new Matrix(row,col);
-        for(int i=0;i<row;i++)
+         Matrix sum=new Matrix(row,col);    
+        if(row==col)
         {
+         
+         for(int i=0;i<row;i++)
+         {
             for(int j=0;j<col;j++)
             {
                 sum.m1[i][j]=m1[j][i];
             }
+         }
+        }
+        else
+        {
+      sum=new Matrix(col,row);
+   
+         for(int i=0;i<col;i++)
+         {
+             for(int j=0;j<row;j++)
+             {
+                sum.m1[i][j]=m1[j][i];
+             }
+         }
         }
         return sum;
     }
