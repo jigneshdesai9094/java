@@ -56,6 +56,8 @@ class Matrix
        
         System.out.println("\nMultiplication Above two matrix");
         Matrix sum=new Matrix(row,col);
+        if(row==col)
+        {
         for(int i=0;i<row;i++)
         {
             for(int j=0;j<col;j++)
@@ -69,6 +71,17 @@ class Matrix
 			
                 sum.m1[i][j]=m;
             }
+        }
+        }
+        else
+        {
+             for(int i=0;i<row;i++)
+        {
+            for(int j=0;j<col;j++)
+            {
+                sum.m1[i][j]=m1[i][j]*m2.getValue(i, j);
+            }
+        }
         }
         return sum;
     }
