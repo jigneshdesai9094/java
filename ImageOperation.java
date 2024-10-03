@@ -59,6 +59,7 @@ class imageOperation {
         button.setFont(new Font("Arial", Font.BOLD, 13)); // Set font
         button.setBackground(Color.LIGHT_GRAY); // Set background color
         button.setForeground(Color.BLACK); // Set text color
+        button.setBorder(BorderFactory.createLineBorder(Color.gray, 1));
 
         // create second button
         JButton button2 = new JButton();
@@ -67,6 +68,7 @@ class imageOperation {
         button2.setFont(new Font("Arial", Font.BOLD, 13)); // Set font
         button2.setBackground(Color.LIGHT_GRAY); // Set background color
         button2.setForeground(Color.black); // Set text color
+        button.setBorder(BorderFactory.createLineBorder(Color.gray, 1));
 
         // create text box
         JTextField text = new JTextField(10);
