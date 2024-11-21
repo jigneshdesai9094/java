@@ -15,7 +15,12 @@ public class P11 {
                     System.out.print(args[i] + " ");
             }
         } catch (CustomException e) {
-            System.err.println("\nError : " + e.getMessage());
+            System.out.println("\nError : " + e.getMessage());
+            e.printStackTrace();
+        }
+        catch(Exception e)
+        {
+            System.out.println("\nError : "+e.getMessage());
             e.printStackTrace();
         }
     }
