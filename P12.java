@@ -1,3 +1,9 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package javaapplication8;
+
 import java.util.Scanner;
 class StackException extends Exception
 {
@@ -7,37 +13,38 @@ class StackException extends Exception
     }
 }
 class Stack1 {
-  int top = -1, s[], max;
-  Scanner s1 = new Scanner(System.in);;
+  int top, s[], max;
 
   Stack1() {
     max = 5;
     s = new int[max];
+    top=-1;
   }
 
   Stack1(int len) {
     max = len;
     s = new int[max];
+    top=-1;
   }
 
-  void push()throws StackException {
-    int ele;
+  void push(int ele)throws StackException {
     if (top == max - 1)
       throw new StackException("\nStack is Overflow..!!");
     else {
       top++;
-      System.out.println("Enter New Element : ");
-      ele = s1.nextInt();
       s[top] = ele;
     }
   }
 
-  void pop()throws StackException{
+  int pop()throws StackException{
+      int rele;
     if (top == -1)
       throw new StackException("\nStack is Underflow..!!");
     else {
-      System.out.println("\nRemove Element : " + s[top]);
-      top--;
+        rele=s[top];
+        top--;
+      return rele;
+   
     }
   }
 
@@ -56,7 +63,7 @@ public class P12 {
   static Scanner sc=new Scanner(System.in);
   public static void operation(Stack1 s)
   {
- 
+     int ele;
       while (true)
       {
         try
@@ -69,10 +76,13 @@ public class P12 {
          int c=sc.nextInt();
          switch (c) {
           case 1:
-            s.push();
+             System.out.println("Enter New Element : ");
+            ele = sc.nextInt();
+            s.push(ele);
             break;
           case 2:
-            s.pop();
+            int rele=s.pop();
+            System.out.println("\nRemove Element : "+rele);
             break;
           case 3:
             s.traverse();
@@ -85,8 +95,13 @@ public class P12 {
       }
       catch(StackException e)
       {
-          System.err.print("\nError : "+e.getMessage());
+          System.out.print("\nError : "+e.getMessage());
           e.printStackTrace();
+      }
+      catch(Exception e)
+      {
+        System.out.println("\nError : "+e.getMessage());
+        e.printStackTrace();
       }
     }
    

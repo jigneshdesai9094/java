@@ -1,20 +1,14 @@
-import java.util.Scanner;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package javaapplication8;
 
+import java.util.Scanner;
+import static java.lang.Math.PI;
 abstract class shape
 {
-  int v1,v2;
-  shape()
-  {}
-  shape(int v1,int v2)
-  {
-      this.v1=v1;
-      this.v2=v2;
-  }
-  shape(int v)
-  {
-      this.v1=v;
-      this.v2=v;
-  }
+  int dimension1,dimension2;
   abstract double area();
   abstract double perimeter();
 }
@@ -22,43 +16,42 @@ class Rectangle extends shape
 {
     Rectangle()
     {
-        v1=12;
-        v2=10;
+        dimension1=12;
+        dimension2=10;
     }
     Rectangle(int v1,int v2)
     {
-        super(v1,v2);
+        dimension1=v1;
+        dimension2=v2;
     }
     double area()
     {
-        return v1*v2;
+        return dimension1*dimension2;
     }
     double perimeter()
     {
-        return 2*(v1+v2);
+        return 2*(dimension1+dimension2);
     }
 }
 class Triangle extends shape
 {
-    int v3;
     Triangle()
     {
-       v1=10;
-       v2=v1;   
-       v3=13;
+       dimension1=10;
+       dimension2=15;   
     }
     Triangle(int v1,int v2)
     {
-        super(v1);
-        v3=v2;
+        dimension1=v1;
+        dimension2=v2;
     }
     double area()
     {
-        return (v1*v3)/2;
+        return (dimension1*dimension2)/2.0;
     }
     double perimeter()
     {
-        return v1+v2+v3;
+        return (2*dimension1)+dimension2;
     }
 }
 
@@ -66,19 +59,19 @@ class Circle extends shape
 {
     Circle()
     {
-        v2=5;
+        dimension1=5;
     }
     Circle(int r)
     {
-        super(r);
+        dimension1=r;
     }
     double area()
     {
-        return 3.14*v2*v2;
+        return PI*dimension1*dimension1;
     }
     double perimeter()
     {
-        return 2*3.14*v2;
+        return 2*PI*dimension1;
     }
 }
 public class P9

@@ -1,3 +1,6 @@
+
+package javaapplication8;
+
 import java.util.Scanner;
 
 interface shapes
@@ -8,69 +11,68 @@ interface shapes
 }
 class Rectangle1 implements shapes
 {
-  int v1,v2;
+  int l,w;
     Rectangle1()
     {
-        v1=12;
-        v2=10;
+        l=12;
+        w=10;
     }
     Rectangle1(int v1,int v2)
     {
-        this.v1=v1;
-        this.v2=v2;
+        this.l=v1;
+        this.w=v2;
     }
     public double area()
     {
-              return v1*v2;
+              return l*w;
     }
     public double perimeter()
     {
-        return 2*(v1+v2);
+        return 2*(l+w);
     }
 }
 class Triangle1 implements shapes
 {
-    int v3,v2,v1;
+    int h,b;
     Triangle1()
     {
-       v1=10;
-       v2=v1;   
-       v3=13;
+       h=10;
+       b=15;   
     }
     Triangle1(int v1,int v2)
     {
-        this.v1=v1;
-        this.v2=v1;
-        v3=v2;
+        this.h=v1;
+        this.b=v1;
+       
     }
    public double area()
     {
-        return (v1*v3)/2;
+        return (h*b)/2.0;
     }
    public double perimeter()
     {
-        return v1+v2+v3;
+        return (2*h)+b;
     }
 }
 
 class Circle1 implements shapes
 {
-  int v2;
+  int r;
     Circle1()
     {
-        v2=5;
+        r=5;
     }
     Circle1(int r)
     {
-        v2=r;
+        r=r;
     }
    public double area()
     {
-        return 3.14*v2*v2;
+        return 3.14*r*r;
     }
    public  double perimeter()
     {
-        return 2*3.14*v2;
+        return 2*3.14*r;
     }
 }
 public class P10 {
