@@ -3,247 +3,158 @@ import java.util.Scanner;
 class Matrix
 {
     private int row,col;
-    private double m1[][];
-    private static double v=1;
-    Matrix()
-    {
-        row=2;
-        col=2;
-        m1=new double[row][col];
-        intilize(row, col, m1);
-    }
+    private int arr[][];
+
     Matrix(int row,int col)
     {
         this.row=row;
         this.col=col;
-        m1=new double[row][col];
-        intilize(row, col, m1);
-    } 
-    public double getValue(int r,int c)
+        arr=new int[row][col];
+    }
+    void intialize(int i,int j,int value)
     {
-        return m1[r][c];
+        arr[i][j]=value;
     }
     public Matrix add(Matrix m2)
     {
-
-        System.out.println("\nAddition Above two matrix");
-        Matrix sum=new Matrix(row,col);
+        Matrix result=new Matrix(row, col); 
         for(int i=0;i<row;i++)
         {
             for(int j=0;j<col;j++)
             {
-                sum.m1[i][j]=m1[i][j]+m2.getValue(i, j);
+                 result.arr[i][j]=arr[i][j]+m2.arr[i][j];
             }
         }
-        return sum;
+        return result;
     }
     public Matrix sub(Matrix m2)
     {
- 
-        System.out.println("\nSubstraction Above two matrix");
-        Matrix sum=new Matrix(row,col);
+        Matrix result=new Matrix(row, col); 
         for(int i=0;i<row;i++)
         {
             for(int j=0;j<col;j++)
             {
-                sum.m1[i][j]=m1[i][j]-m2.getValue(i, j);
+                 result.arr[i][j]=arr[i][j]-m2.arr[i][j];
             }
         }
-        return sum;
+        return result;
     }
     public Matrix mul(Matrix m2)
     {
-       
-        System.out.println("\nMultiplication Above two matrix");
-        Matrix sum=new Matrix(row,col);
-        if(row==col)
-        {
+        Matrix result=new Matrix(row, m2.col); 
         for(int i=0;i<row;i++)
         {
-            for(int j=0;j<col;j++)
-            {
-
-                 double m=0;
-				 for(int k=0;k<col;k++)
-				 {
-					 m=m+(m1[i][k]*m2.getValue(k,j));
-				 }
-			
-                sum.m1[i][j]=m;
-            }
-        }
-        }
-        else
-        {
-             for(int i=0;i<row;i++)
-        {
-            for(int j=0;j<col;j++)
-            {
-                sum.m1[i][j]=m1[i][j]*m2.getValue(i, j);
-            }
-        }
-        }
-        return sum;
-    }
-    public Matrix transpose()
-    {
-         Matrix sum=new Matrix(row,col);    
-        if(row==col)
-        {
-         
-         for(int i=0;i<row;i++)
-         {
-            for(int j=0;j<col;j++)
-            {
-                sum.m1[i][j]=m1[j][i];
-            }
-         }
-        }
-        else
-        {
-      sum=new Matrix(col,row);
-   
-         for(int i=0;i<col;i++)
-         {
-             for(int j=0;j<row;j++)
+             for(int j=0;j<m2.col;j++)
              {
-                sum.m1[i][j]=m1[j][i];
+                 for(int k=0;k<m2.row;k++)
+                 {
+                    result.arr[i][j]=result.arr[i][j]+(arr[i][k]*m2.arr[k][j]);
+                 }
              }
-         }
         }
-        return sum;
+        return result;
     }
-    public void intilize(int row,int col,double m1[][])
+    public void transpose()
     {
-        for(int i=0;i<row;i++)
-        {
-            for(int j=0;j<col;j++)
-            {
-                  m1[i][j]=v;
-                  v+=1;
-                  
-            }
-        }
-    }
-    public void user_intialize()
-    {
-        Scanner sc=new Scanner(System.in);
-        int v1;
-         for(int i=0;i<row;i++)
+        int array[][]=new int[col][row];
+        for(int i=0;i<col;i++)
          {
-            for(int j=0;j<col;j++)
-            {
-                System.out.println("Enter m["+i+"]["+j+"] value : ");
-                
-                v1=sc.nextInt();
-                m1[i][j]=v1;
-            }
+            for(int j=0;j<row;j++)
+               array[i][j]=arr[j][i];
          }
+        int x=row;
+        row=col;
+        col=x;
+        arr=array;
     }
-    public String toString() 
+    public String toString()
     {
+        String s="";
         for(int i=0;i<row;i++)
         {
             for(int j=0;j<col;j++)
             {
-                System.out.print(m1[i][j]+"   ");
+                   s=s+arr[i][j]+" ";
             }
-            System.out.println();
+            s=s+"\n";
         }
-        return " ";
+        return s;
     }
 }
-public class P8 {
-  static Scanner sc=new Scanner(System.in);
-  public static void operation(Matrix m1,Matrix m2)
-  {
-    System.out.println("\nMatrix 1 : ");
-    System.out.println(m1);
-    System.out.println("\nMatrix 2 : ");
-    System.out.println(m2);
-      while (true)
-      {
-         System.out.println("\n1.Own Intialize Matrix");
-         System.out.println("2.Addition");
-         System.out.println("3.Substraction");
-         System.out.println("4.Multiplication");
-         System.out.println("5.Transpose of First Matrix");
-         System.out.println("6.Exit");
-         System.out.println("Enter Your Choice : ");
-         int c=sc.nextInt();
-         Matrix ans;
-         switch (c) {
-          case 1:
-                    System.out.println("1.Intialize Matrix 1");
-					System.out.println("2.Intialize Matrix 2");
-					System.out.println("Enter your choice");
-					int c1 = sc.nextInt();
-					switch (c1) {
-						case 1:m1.user_intialize(); 
-                               System.out.println("Matrix - 1");
-                               System.out.println(m1);
-                               break;
-                        case 2:m2.user_intialize();
-                              System.out.println("Matrix - 2");
-                               System.out.println(m2);
-                               break;
-                        default:System.out.println("Please,enter valid choice");
-                    }
-                    break;
-          case 2:
-            ans=m1.add(m2);
-            System.out.println(ans);
-            break;
-          case 3:
-          ans=m1.sub(m2);
-          System.out.println(ans);
-            break;
-          case 4:
-          ans=m1.mul(m2);
-          System.out.println(ans);
-            break;
-          case 5:
-           ans=m1.transpose();
-           System.out.println(ans);
-           break;
-          case 6:
-            System.exit(0);
-          default:System.out.println("\nPlease,enter valid one above choice");
-            break; 
-         }
-      }
-  }
+class P8
+{
     public static void main(String[] args) {
-       
-    boolean t=true;
-    while(t)
-    {
-	   System.out.println("1.Default Matrix");
-       System.out.println("2.User Length Matrix");
-       System.out.println("Enter Your Choice : ");
-       int c=sc.nextInt();
-       if(c==1)
-       {
-          Matrix m1=new Matrix();
-          Matrix m2=new Matrix();
-          operation(m1,m2);
-          t=false;
-       }
-       else if(c==2)
-       {
-           System.out.println("Enter Matrix row and column : ");
-           int r=sc.nextInt();
-           c=sc.nextInt();
-           Matrix m2=new Matrix(r,c);
-           Matrix m3=new Matrix(r,c);
-           operation(m2,m3);
-           t=false;
-       }
-      else
-      {
-       System.out.println("\nPlease,enter one of above choice");
-      }
-  }
-     
+        int col,row,col2,row2;
+        Scanner s1 = new Scanner(System.in);
+        System.out.println("Enter number of column and row Of the First Matrix");
+        col=s1.nextInt();
+        row=s1.nextInt();
+        Matrix m1=new Matrix(row, col);
+        for(int i=0;i<row;i++)
+        {
+            for(int j=0;j<col;j++)
+            {
+                System.out.printf("Enter First Matrix [%d][%d] value : ",i,j);
+                int v = s1.nextInt();
+                m1.intialize(i, j, v);
+            }
+        }
+        System.out.println("Enter number of column and row Of the Second Matrix");
+        col2=s1.nextInt();
+        row2=s1.nextInt();
+
+        Matrix m2=new Matrix(row2, col2);
+        for(int i=0;i<row2;i++)
+        {
+            for(int j=0;j<col2;j++)
+            {
+                System.out.printf("Enter Second Matrix [%d][%d] value : ",i,j);
+                int v = s1.nextInt();
+                m2.intialize(i, j, v);
+            }
+        }
+        System.out.println("\nMatrix 1 :");
+        System.out.println(m1);
+        System.out.println("\nMatrix 2 :");
+        System.out.println(m2);
+
+        Matrix result;
+        while (true) {
+            System.out.println("\n1.Addition");
+            System.out.println("2.Substraction");
+            System.out.println("3.Multiplication");
+            System.out.println("4.Transpose");
+            System.out.println("5.exit");
+            System.out.println("\nEnter your choice");
+            int choice = s1.nextInt();
+            switch (choice) {
+                case 1:
+                    result=m1.add(m2);
+                    System.out.println(result);
+                    break;
+                case 2:
+                    result=m1.sub(m2);
+                    System.out.println(result);
+                    break;
+                case 3:
+                    result=m1.mul(m2);
+                    System.out.println(result);
+                    break;
+                case 4:System.out.println("\n Enter 1 or 2 for Transpose first matrix or second matrix ");
+                      int decide = s1.nextInt();
+                      if(decide==1)
+                         result=m1;
+                      else
+                         result=m2;
+                    result.transpose();
+                    System.out.println(result);
+                    break;
+                case 5:System.exit(0);
+            
+                default:System.out.println("please,enter valid choice");
+                    break;
+            }
+        }
+
     }
 }
